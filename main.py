@@ -1,16 +1,22 @@
-# This is a sample Python script.
+import numpy as np
+import matplotlib.pyplot as plt
+from leastSquares import LeastSquares
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+fig = plt.figure(figsize=(10, 4))
+plt.rcParams["figure.autolayout"] = True
+ax = fig.add_subplot(111)
+
+ls=LeastSquares()
+
+H_all=np.random.random((ls.max_samples+5,1))
+
+# cost_av=ls.ComputeExampleLS(H_all)
+ls.ComputeExampleCovRLS(H_all)
+
+ls.ComputeExpectedCostValues(H_all)
+
+# plt.plot(cost_av,linewidth=2,color="orange",label="cost av")
+ax.legend()
+plt.show()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
