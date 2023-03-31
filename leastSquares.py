@@ -61,17 +61,13 @@ class LeastSquares:
                 est, cost = self.ls(z, H)
                 errors[j, i] = cost
                 cost_vals.append(cost)
-            if j==0:
-                plt.plot(cost_vals, linewidth=1,label="cost", color="grey")
-            else:
-                plt.plot(cost_vals, linewidth=1, color="grey")
+
         cost_av = []
         for j in errors.T:
             cost_av.append(j.mean())
         return cost_av
 
     def ComputeExampleInfoRLS(self,H_all):
-
         errors = np.zeros((self.iterations, self.max_samples))
         for j in range(self.iterations):
             cost_vals = []
@@ -101,7 +97,6 @@ class LeastSquares:
                 plt.plot(cost_vals, linewidth=1, color="grey")
 
     def ComputeExampleCovRLS(self,H_all):
-
         errors = np.zeros((self.iterations, self.max_samples))
         for j in range(self.iterations):
             cost_vals = []

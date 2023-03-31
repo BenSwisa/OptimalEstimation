@@ -10,12 +10,17 @@ ls=LeastSquares()
 
 H_all=np.random.random((ls.max_samples+5,1))
 
-# cost_av=ls.ComputeExampleLS(H_all)
-ls.ComputeExampleCovRLS(H_all)
-
+#==========[ Expected cost ]===================
 ls.ComputeExpectedCostValues(H_all)
 
-# plt.plot(cost_av,linewidth=2,color="orange",label="cost av")
+#==========[ Covariance Recursive LS ]===================
+# ls.ComputeExampleCovRLS(H_all)
+
+#==========[ Regular LS ]===================
+cost_av=ls.ComputeExampleLS(H_all)
+plt.plot(cost_av,linewidth=2,color="orange",label="cost av")
+
+
 ax.legend()
 plt.show()
 
